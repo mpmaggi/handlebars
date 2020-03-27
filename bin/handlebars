@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const yargs = require('yargs')
+var yargs = require('yargs')
   .usage('Precompile handlebar templates.\nUsage: $0 [template|directory]...')
   .option('f', {
     type: 'string',
@@ -105,11 +105,11 @@ const yargs = require('yargs')
   })
   .wrap(120);
 
-const argv = yargs.argv;
+var argv = yargs.argv;
 argv.files = argv._;
 delete argv._;
 
-const Precompiler = require('../dist/cjs/precompiler');
+var Precompiler = require('../dist/cjs/precompiler');
 Precompiler.loadTemplates(argv, function (err, opts) {
   if (err) {
     throw err;
